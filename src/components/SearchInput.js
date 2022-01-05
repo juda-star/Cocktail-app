@@ -12,19 +12,25 @@ const SearchInput = () => {
 
   const handleChange = () => {
     const searchText = searchValue.current.value;
-    dispatch(fetchSearchCocktail( searchText ));
+    dispatch(fetchSearchCocktail(searchText));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
   };
 
-  const StyleIcon = {color: "#FEC94A", font: "larger" };
+  const StyleIcon = { color: "#FEC94A", font: "larger" };
 
   return (
     <div>
       <div className="box">
-       <div className="title"> <h2>judaCocktails<FaCocktail  style={StyleIcon}/></h2></div>
+        <div className="centertext">
+         
+          <h2>judaCocktails</h2>
+          <p>
+            <FaCocktail style={StyleIcon} />
+          </p>
+        </div>
         <form onSubmit={handleSubmit}>
           <div className="cocktailForm">
             <Paper component="form">

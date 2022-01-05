@@ -56,7 +56,11 @@ const SingleCocktail = () => {
     }
   }, [id, cocktail]);
   if (!modifiedCockatil) {
-    return <h2>no cocktail to display</h2>;
+    return(
+      <div className="pageNotFound">
+      <img src="https://wallpapercave.com/wp/wp8639682.jpg" />
+    </div>
+    );
   } else {
     const { name, image, info, category, glass, instructions, ingredients } =
       modifiedCockatil;
