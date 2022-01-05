@@ -1,30 +1,29 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+
+const REACT_APP_FETCH_COCKTAIL = process.env.REACT_APP_FETCH_COCKTAIL;
+const REACT_APP_SINGLE_COCKTAIL = process.env.REACT_APP_SINGLE_COCKTAIL;
+const REACT_APP_SEARCH_COCKTAIL = process.env.REACT_APP_SEARCH_COCKTAIL;
+
 export const fetchCocktails = createAsyncThunk(
   "cocktails/fetchCocktails",
   async () => {
-    return fetch(
-      "https://www.thecocktaildb.com/api/json/v1/1/search.php?s="
-    ).then((res) => res.json());
+    return fetch(`${REACT_APP_FETCH_COCKTAIL}`).then((res) => res.json());
   }
 );
 
-const {REACT_APP_FETCH_COCKTAIL}=process.env;
-
 export const fetchSingelCocktail = createAsyncThunk(
   "cocktails/fetchSingelCocktail",
-  async ( id ) => {
-    return fetch(
-      `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`
-    ).then((res) => res.json());
+  async (id) => {
+    return fetch(`${REACT_APP_SINGLE_COCKTAIL}${id}`).then((res) => res.json());
   }
 );
 
 export const fetchSearchCocktail = createAsyncThunk(
   "cocktails/fetchSearchCocktail",
-  async ( searchText ) => {
-    return fetch(
-      `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchText}`
-    ).then((res) => res.json());
+  async (searchText) => {
+    return fetch(`${REACT_APP_SEARCH_COCKTAIL}${searchText}`).then((res) =>
+      res.json()
+    );
   }
 );
 
