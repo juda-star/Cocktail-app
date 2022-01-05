@@ -1,0 +1,10 @@
+.cocktailForm {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+h2 {
+  text-align: center;
+  color: #fec94a;
+}
