@@ -1,12 +1,26 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { fetchSearchCocktail } from "../redux/feature/cocktailSlice";
 import { useDispatch } from "react-redux";
 import "./SearchInput.css";
 import Paper from "@material-ui/core/Paper";
-import InputBase from "@material-ui/core/InputBase";
 import { FaCocktail } from "react-icons/fa";
-
+import styled, { ThemeProvider } from "styled-components";
+import { GlobalStyles, lightTheme, darkTheme } from "../components/theme";
+import Switch from "@mui/material/Switch";
+import Stack from "@mui/material/Stack";
+const styledApp = styled.div`
+  color: ${(props) => props.theme.fontColor};
+`;
 const SearchInput = () => {
+  let iconStyle = {
+    height: "35",
+    width: "35",
+  };
+  const [theme, setTheme] = useState("light");
+  const themeToggle = () => {
+    theme === "light" ? setTheme("dark") : setTheme("light");
+  };
+
   const searchValue = useRef();
   const dispatch = useDispatch();
 
@@ -23,29 +37,41 @@ const SearchInput = () => {
 
   return (
     <div>
-      <div className="box">
-        <div className="centertext">
-         
-          <h2>judaCocktails</h2>
-          <p>
-            <FaCocktail style={StyleIcon} />
-          </p>
-        </div>
-        <form onSubmit={handleSubmit}>
-          <div className="cocktailForm">
-            <Paper component="form">
-              <input
-                name="name"
-                type="text"
-                ref={searchValue}
-                placeholder="Search Cocktail"
-                inputProps={{ "aria-label": "Search Cocktail" }}
-                onChange={handleChange}
-              />
-            </Paper>
+      <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+        <GlobalStyles />
+        <styledApp>
+          <div className="centertext">
+            <h2>judaCocktails</h2>
+            <p>
+              <FaCocktail style={StyleIcon} />
+            </p>
           </div>
-        </form>
-      </div>
+          <form onSubmit={handleSubmit}>
+            <div className="cocktailForm">
+              <Paper component="form">
+                <input
+                  name="name"
+                  type="text"
+                  ref={searchValue}
+                  placeholder="Search Cocktail"
+                  inputProps={{ "aria-label": "Search Cocktail" }}
+                  onChange={handleChange}
+                />
+                <Stack
+                  direction="row"
+                  spacing={1}
+                  justifyContent="center"
+                  alignItems="center"
+                >
+                  <span>dark</span>
+                  <Switch onClick={() => themeToggle()} />
+                  <span>light</span>
+                </Stack>
+              </Paper>
+            </div>
+          </form>
+        </styledApp>
+      </ThemeProvider>
     </div>
   );
 };
