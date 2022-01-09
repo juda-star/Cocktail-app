@@ -1,3 +1,9 @@
+.bigContainer {
+  background-image: url("https://i.pinimg.com/originals/7a/fb/85/7afb85f5d056b5833c82c7a15d5b5594.gif");
+  height: 40vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 .cocktailForm {
   display: flex;
   text-align: center;

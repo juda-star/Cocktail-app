@@ -2,11 +2,11 @@ import React from "react";
 import "./Footer.css";
 import { FaFacebookSquare, FaLinkedin, FaGithubSquare } from "react-icons/fa";
 
-const StyleIconLinkedin = { color: "#0A66C2", font: "larger" };
+const StyleIconLinkedin = { color: "#0A66C2", fontSize: "x-large" };
 
-const StyleIconGit = { color: "#161B22" };
+const StyleIconGit = { color: "#161B22", fontSize: "x-large" };
 
-const StyleIconFacebook = { color: "#1877F2" };
+const StyleIconFacebook = { color: "#1877F2", fontSize: "x-large" };
 
 const Footer = () => {
   return (

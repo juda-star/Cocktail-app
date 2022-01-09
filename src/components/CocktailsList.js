@@ -86,12 +86,3 @@ const CocktailsList = () => {
 
 export default CocktailsList;
 
-// <div key={`${index}-${id}`} className="bodyCard">
-//   <img src={image} />
-//   <h5>{name}</h5>
-//   <h4>{glass}</h4>
-//   <p>{info}</p>
-//   <Link to={`/cocktail/${id}`}>
-//     <Button>Deatils</Button>
-//   </Link>
-// </div>

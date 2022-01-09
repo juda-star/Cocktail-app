@@ -10,12 +10,10 @@ import Switch from "@mui/material/Switch";
 import Stack from "@mui/material/Stack";
 const styledApp = styled.div`
   color: ${(props) => props.theme.fontColor};
+ 
 `;
 const SearchInput = () => {
-  let iconStyle = {
-    height: "35",
-    width: "35",
-  };
+ 
   const [theme, setTheme] = useState("light");
   const themeToggle = () => {
     theme === "light" ? setTheme("dark") : setTheme("light");
@@ -36,7 +34,7 @@ const SearchInput = () => {
   const StyleIcon = { color: "#FEC94A", font: "larger" };
 
   return (
-    <div>
+    <div className="bigContainer">
       <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
         <GlobalStyles />
         <styledApp>
